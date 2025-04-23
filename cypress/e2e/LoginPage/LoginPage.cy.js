@@ -23,7 +23,7 @@ describe('Login Page', () => {
 
   it('LoginTC_002, Verify error message for incorrect password', () => {
     cy.get('input[name="username"]').type("1020")
-    cy.get('input[name="username"]').type("102ahh")
+    cy.get('input[name="password"]').type("102ahh")
 
     cy.contains('button', 'Submit').click(); // Click the submit button
 
@@ -34,7 +34,7 @@ describe('Login Page', () => {
 
   it('LoginTC_003, Verify error message for incorrect password', () => {
     cy.get('input[name="username"]').type("no user")
-    cy.get('input[name="username"]').type("no pass")
+    cy.get('input[name="password"]').type("no pass")
 
     cy.contains('button', 'Submit').click(); // Click the submit button
 
