@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-04-22T14:43:51.313Z",
+    "end": "2025-04-22T14:44:28.717Z",
+    "duration": 37404,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c72341f1-a88f-49ab-8d8f-24f6515d2503",
+      "title": "",
+      "fullFile": "cypress/e2e/Feedback.cy.js",
+      "file": "cypress/e2e/Feedback.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cd04e92e-dec5-4711-9512-61d928a4277d",
+          "title": "Feedback",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Send Feedback",
+              "fullTitle": "Feedback Send Feedback",
+              "timedOut": null,
+              "duration": 35786,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"/Feedback.cy.js/Feedback -- Send Feedback (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.visit('/');\ncy.contains(/login/i);\ncy.get('input[name=username]').type(\"102\");\ncy.get('input[name=password]').type(\"102ah\");\n// cy.get('button').contains(/submit/i).click()\n// cy.get('h3').contains(/courses/i).should('exist')\ncy.intercept('POST', 'https://papi.ku-ai-instructor.azzammourad.org/auth/login').as('loginRequest'); // Intercept the request\ncy.contains('button', 'Submit').click(); // Click the submit button\ncy.wait('@loginRequest') // Wait for the request to complete\n.its('response.statusCode').should('eq', 200); // Assert response status\ncy.get('h3').contains(/courses/i).should('exist');\ncy.get('button').contains(/provide feedback/i).click();\ncy.get('#alert-dialog-description').should('exist');\ncy.get('#alert-dialog-description').within(() => {\n  cy.get('div[role=\"combobox\"]').click();\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `loginRequest`. No request ever occurred.\n\nhttps://on.cypress.io/wait",
+                "estack": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `loginRequest`. No request ever occurred.\n\nhttps://on.cypress.io/wait\n    at cypressErr (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:75176:18)\n    at Object.errByPath (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:75230:10)\n    at checkForXhr (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:136105:84)\n    at <unknown> (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:136131:28)\n    at tryCatcher (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:144517:68)\n    at <unknown> (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:144458:14)\n    at tryCatcher (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:5420:46)\nFrom Your Spec Code:\n    at Object.proxyGetter [as get] (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:77938:22)\n    at exists (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:143717:26)\n    at elExists (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:143732:10)\n    at ensureExistence (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:143913:22)\n    at onFailFn (https://test2.ku-ai-instructor.azzammourad.org/__cypress/runner/cypress_runner.js:143942:53)",
+                "diff": null
+              },
+              "uuid": "ffe11078-7e47-47bc-9f34-b296fb6cdd49",
+              "parentUUID": "cd04e92e-dec5-4711-9512-61d928a4277d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ffe11078-7e47-47bc-9f34-b296fb6cdd49"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 35786,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "cypressParallel": "true",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

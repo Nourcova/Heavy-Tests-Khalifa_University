@@ -1,0 +1,257 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 8,
+    "passes": 4,
+    "pending": 0,
+    "failures": 4,
+    "start": "2025-04-22T14:43:50.520Z",
+    "end": "2025-04-22T14:46:13.297Z",
+    "duration": 142777,
+    "testsRegistered": 8,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3fe612bc-9f38-4cc4-bf1b-b6db70c81f54",
+      "title": "",
+      "fullFile": "cypress/e2e/LoginPage10.cy.js",
+      "file": "cypress/e2e/LoginPage10.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1b3bdc2e-1759-4990-905c-d9a7d096a33c",
+          "title": "Login Page 10",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "LoginTC_001, Verify successful login with valid credentials",
+              "fullTitle": "Login Page 10 LoginTC_001, Verify successful login with valid credentials",
+              "timedOut": null,
+              "duration": 34166,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[name=\"username\"]').type(\"1010\");\ncy.get('input[name=\"password\"]').type(\"1010us\");\ncy.contains('button', 'Submit').click(); // Click the submit button\ncy.wait('@loginRequest') // Wait for the request to complete\n.its('response.statusCode').should('eq', 200); // Assert response status\ncy.contains(/courses/i).should('exist');",
+              "err": {},
+              "uuid": "bb83be33-b758-4151-b84e-f5975fdce0e9",
+              "parentUUID": "1b3bdc2e-1759-4990-905c-d9a7d096a33c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "LoginTC_002, Verify error message for incorrect password",
+              "fullTitle": "Login Page 10 LoginTC_002, Verify error message for incorrect password",
+              "timedOut": null,
+              "duration": 7860,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[name=\"username\"]').type(\"1010\");\ncy.get('input[name=\"password\"]').type(\"1010ahh\");\ncy.contains('button', 'Submit').click(); // Click the submit button\ncy.wait('@loginRequest') // Wait for the request to complete\n.its('response.statusCode').should('eq', 401); // Assert response status\ncy.contains(/incorrect username or password/i);",
+              "err": {},
+              "uuid": "4bac7804-7ffb-4938-be60-b62ad53812c5",
+              "parentUUID": "1b3bdc2e-1759-4990-905c-d9a7d096a33c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "LoginTC_003, Verify error message for incorrect password",
+              "fullTitle": "Login Page 10 LoginTC_003, Verify error message for incorrect password",
+              "timedOut": null,
+              "duration": 5755,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[name=\"username\"]').type(\"no user\");\ncy.get('input[name=\"password\"]').type(\"no pass\");\ncy.contains('button', 'Submit').click(); // Click the submit button\ncy.wait('@loginRequest') // Wait for the request to complete\n.its('response.statusCode').should('eq', 401); // Assert response status\ncy.contains(/incorrect username or password/i);",
+              "err": {},
+              "uuid": "e9b34fe9-5fcd-4221-9477-9bfc5dc62a8b",
+              "parentUUID": "1b3bdc2e-1759-4990-905c-d9a7d096a33c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "LoginTC_004, Verify login with empty username/password fields",
+              "fullTitle": "Login Page 10 LoginTC_004, Verify login with empty username/password fields",
+              "timedOut": null,
+              "duration": 4200,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button').should('be.disabled');",
+              "err": {},
+              "uuid": "13c45d1e-23f8-41fd-b8f6-d7c595ba2447",
+              "parentUUID": "1b3bdc2e-1759-4990-905c-d9a7d096a33c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "CoursesTC_004, Verify Resource button for each course, chapter and for each document is working",
+              "fullTitle": "Login Page 10 CoursesTC_004, Verify Resource button for each course, chapter and for each document is working",
+              "timedOut": null,
+              "duration": 16338,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"/LoginPage10.cy.js/Login Page 10 -- CoursesTC_004, Verify Resource button for each course, chapter and for each document is working (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('input[name=\"username\"]').type(\"100064692\");\ncy.get('input[name=\"password\"]').type(\"100064692ab\");\ncy.contains('button', 'Submit').click(); // Click the submit button\ncy.wait('@loginRequest') // Wait for the request to complete\n.its('response.statusCode').should('eq', 200); // Assert response status\ncy.contains(/courses/i).should('exist');\ncy.get('a[href=\"/student/courses/2\"]').click();\ncy.get('h4').contains(\"Operating Systems\").should('exist');\ncy.get('.css-69i1ev button').click();\ncy.get(\".css-1l5fc5h li\").last().should('contain.text', 'Give me the summary of this resource');\ncy.get(\".css-105tbcy li:first-child .css-uwug0d\").click();\ncy.get(\".css-1l5fc5h li\").last().should('contain.text', 'Give me the summary of this resource');\ncy.get(\"#panel1-header\").click();\ncy.get(\".css-1cbf1l2 button\").click();\ncy.get(\".css-1l5fc5h li\").last().should('contain.text', 'Give me the summary of this resource');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a[href=\"/student/courses/2\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a[href=\"/student/courses/2\"]`, but never found it.\n    at Context.eval (webpack://cypress-project/./cypress/e2e/LoginPage10.cy.js:61:7)",
+                "diff": null
+              },
+              "uuid": "56121f1f-172d-45fa-b9f7-71c414e0f6a6",
+              "parentUUID": "1b3bdc2e-1759-4990-905c-d9a7d096a33c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "CoursesTC_005, Verify Stard Session and End Session are working",
+              "fullTitle": "Login Page 10 CoursesTC_005, Verify Stard Session and End Session are working",
+              "timedOut": null,
+              "duration": 16922,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"/LoginPage10.cy.js/Login Page 10 -- CoursesTC_005, Verify Stard Session and End Session are working (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('input[name=\"username\"]').type(\"1010\");\ncy.get('input[name=\"password\"]').type(\"1010us\");\ncy.contains('button', 'Submit').click(); // Click the submit button\ncy.wait('@loginRequest') // Wait for the request to complete\n.its('response.statusCode').should('eq', 200); // Assert response status\ncy.contains(/courses/i).should('exist');\ncy.get('a[href=\"/student/courses/2\"]').click();\ncy.get('h4').contains(\"Operating Systems\").should('exist');\ncy.get(\".css-qsg04 .css-yd8sa2 div[aria-label^='Start Session']\").should('exist');\ncy.get(\".css-qsg04 .css-yd8sa2 div[aria-label^='Interrupt']\").should('have.attr', 'aria-disabled', 'true');\ncy.get(\".css-qsg04 .css-yd8sa2 button[aria-label^='Hold to Start Recording']\").should('be.disabled');\ncy.get(\".css-qsg04 .css-yd8sa2 div[aria-label^='Start Session']\").click();\ncy.wait('@streamingStart', {\n  timeout: 40000\n}).then(interception => {\n  if (interception.response.statusCode === 200) {\n    // If the request is successful, check if \"End session\" exists\n    cy.get('div[aria-label^=\"End Session\"]', {\n      timeout: 25000\n    }).should('exist');\n    cy.get(\".css-qsg04 .css-yd8sa2 div[aria-label^='Interrupt']\").should('not.be.disabled');\n    cy.get(\".css-qsg04 .css-yd8sa2 button[aria-label^='Hold to Start Recording']\").should('not.be.disabled');\n    //  cy.get('div').contains('Starting Avatar Took too long, please try again!').should('not.exist')\n  } else {\n    // If the request fails, check that \"End session\" does NOT exist\n    cy.get('div[aria-label^=\"End Session\"]', {\n      timeout: 25000\n    }).should('not.exist');\n    //  cy.get('div').contains('Starting Avatar Took too long, please try again!').should('exist')\n  }\n});\ncy.get('.css-qsg04 .css-yd8sa2 div[aria-label^=\"End Session\"]').click();\ncy.get(\".css-qsg04 .css-yd8sa2 div[aria-label^='Start Session']\").should('exist');\ncy.get(\".css-qsg04 .css-yd8sa2 div[aria-label^='Interrupt']\").should('have.attr', 'aria-disabled', 'true');\ncy.get(\".css-qsg04 .css-yd8sa2 button[aria-label^='Hold to Start Recording']\").should('be.disabled');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a[href=\"/student/courses/2\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a[href=\"/student/courses/2\"]`, but never found it.\n    at Context.eval (webpack://cypress-project/./cypress/e2e/LoginPage10.cy.js:87:7)",
+                "diff": null
+              },
+              "uuid": "784d7d0f-3e1c-49b2-8493-c29e06dbed69",
+              "parentUUID": "1b3bdc2e-1759-4990-905c-d9a7d096a33c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "CoursesTC_006, Verify Record from the input is working",
+              "fullTitle": "Login Page 10 CoursesTC_006, Verify Record from the input is working",
+              "timedOut": null,
+              "duration": 23637,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"/LoginPage10.cy.js/Login Page 10 -- CoursesTC_006, Verify Record from the input is working (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('input[name=\"username\"]').type(\"1010\");\ncy.get('input[name=\"password\"]').type(\"1010us\");\ncy.contains('button', 'Submit').click(); // Click the submit button\ncy.wait('@loginRequest') // Wait for the request to complete\n.its('response.statusCode').should('eq', 200); // Assert response status\ncy.contains(/courses/i).should('exist');\ncy.get('a[href=\"/student/courses/2\"]').click();\ncy.get('h4').contains(\"Operating Systems\").should('exist');\ncy.get('.css-y42r8g').trigger('mousedown');\ncy.get('.css-y42r8g').should('have.class', 'active');\ncy.get('.css-y42r8g').trigger('mouseup');\ncy.get('.css-y42r8g').should('not.have.class', 'active');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<button#:r17:.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.css-y42r8g>' to have class 'active'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<button#:r17:.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.css-y42r8g>' to have class 'active'\n    at Context.eval (webpack://cypress-project/./cypress/e2e/LoginPage10.cy.js:134:26)",
+                "diff": null
+              },
+              "uuid": "4d939efb-9771-497d-8ffd-7e515854a3d5",
+              "parentUUID": "1b3bdc2e-1759-4990-905c-d9a7d096a33c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "CoursesTC_007, Verify Record from Avatar is working",
+              "fullTitle": "Login Page 10 CoursesTC_007, Verify Record from Avatar is working",
+              "timedOut": null,
+              "duration": 25709,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"/LoginPage10.cy.js/Login Page 10 -- CoursesTC_007, Verify Record from Avatar is working (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('input[name=\"username\"]').type(\"1010\");\ncy.get('input[name=\"password\"]').type(\"1010us\");\ncy.contains('button', 'Submit').click(); // Click the submit button\ncy.wait('@loginRequest') // Wait for the request to complete\n.its('response.statusCode').should('eq', 200); // Assert response status\ncy.contains(/courses/i).should('exist');\ncy.get('a[href=\"/student/courses/2\"]').click();\ncy.get('h4').contains(\"Operating Systems\").should('exist');\ncy.get(\".css-qsg04 .css-yd8sa2 div[aria-label^='Start Session']\").should('exist');\ncy.get(\".css-qsg04 .css-yd8sa2 div[aria-label^='Interrupt']\").should('have.attr', 'aria-disabled', 'true');\ncy.get(\".css-qsg04 .css-yd8sa2 button[aria-label^='Hold to Start Recording']\").should('be.disabled');\ncy.get(\".css-qsg04 .css-yd8sa2 div[aria-label^='Start Session']\").click();\ncy.wait('@streamingStart', {\n  timeout: 40000\n}).then(interception => {\n  if (interception.response.statusCode === 200) {\n    // If the request is successful, check if \"End session\" exists\n    cy.get('div[aria-label^=\"End Session\"]', {\n      timeout: 25000\n    }).should('exist');\n    cy.get(\".css-qsg04 .css-yd8sa2 div[aria-label^='Interrupt']\").should('not.be.disabled');\n    cy.get(\".css-qsg04 .css-yd8sa2 button[aria-label^='Hold to Start Recording']\").should('not.be.disabled');\n    //  cy.get('div').contains('Starting Avatar Took too long, please try again!').should('not.exist')\n  } else {\n    // If the request fails, check that \"End session\" does NOT exist\n    cy.get('div[aria-label^=\"End Session\"]', {\n      timeout: 25000\n    }).should('not.exist');\n    //  cy.get('div').contains('Starting Avatar Took too long, please try again!').should('exist')\n  }\n});\ncy.get(\".css-qsg04 .css-yd8sa2 > button\").first().trigger('mousedown');\ncy.get(\".css-qsg04 .css-yd8sa2 > button\").first().should('not.be.disabled');\ncy.get(\".css-qsg04 .css-yd8sa2 button[aria-label^='Release to Stop Recording']\").should('exist');\ncy.get('.css-plk6wi video').should('have.css', 'outline', 'rgb(255, 193, 7) solid 5px');\ncy.get(\".css-qsg04 .css-yd8sa2 > button\").first().trigger('mouseup');\ncy.get(\".css-qsg04 .css-yd8sa2 > button\").first().should('not.have.attr', 'active');\ncy.get('.css-plk6wi video').should('not.have.css', 'outline', 'rgb(255, 193, 7) solid 5px');\ncy.get('.css-qsg04 .css-yd8sa2 div[aria-label^=\"End Session\"]').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Operating Systems' within the element: <h4.MuiTypography-root.MuiTypography-h4.css-16tclst> but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Operating Systems' within the element: <h4.MuiTypography-root.MuiTypography-h4.css-16tclst> but never did.\n    at Context.eval (webpack://cypress-project/./cypress/e2e/LoginPage10.cy.js:152:47)",
+                "diff": null
+              },
+              "uuid": "1ecb3135-dcc4-4e3b-8d21-7c8007b7a4ba",
+              "parentUUID": "1b3bdc2e-1759-4990-905c-d9a7d096a33c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bb83be33-b758-4151-b84e-f5975fdce0e9",
+            "4bac7804-7ffb-4938-be60-b62ad53812c5",
+            "e9b34fe9-5fcd-4221-9477-9bfc5dc62a8b",
+            "13c45d1e-23f8-41fd-b8f6-d7c595ba2447"
+          ],
+          "failures": [
+            "56121f1f-172d-45fa-b9f7-71c414e0f6a6",
+            "784d7d0f-3e1c-49b2-8493-c29e06dbed69",
+            "4d939efb-9771-497d-8ffd-7e515854a3d5",
+            "1ecb3135-dcc4-4e3b-8d21-7c8007b7a4ba"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 134587,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "cypressParallel": "true",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

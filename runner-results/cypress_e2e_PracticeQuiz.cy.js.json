@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 1,
+  "passes": 0,
+  "pending": 0,
+  "failures": 1,
+  "start": "2025-04-22T14:44:30.064Z",
+  "duration": 47404,
+  "file": "cypress/e2e/PracticeQuiz.cy.js"
+}

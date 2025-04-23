@@ -1,0 +1,45 @@
+{
+  "name": "cypress-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:chrome": "cypress run --borwser chrome --spec cypress/e2e/*.cy.js",
+    "cy:parallel": "cypress-parallel -d cypress/e2e/ -t 5 -s test2",
+    "test:spec1": "cypress run --spec 'cypress/e2e/LoginPage.cy.js' --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/report,reportFilename=LoginPage,overwrite=false,html=false,json=true",
+    "test:spec19": "cypress run --spec 'cypress/e2e/LoginPage19.cy.js' --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/report,reportFilename=LoginPage19,overwrite=false,html=false,json=true",
+    "test:spec18": "cypress run --spec 'cypress/e2e/LoginPage18.cy.js' --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/report,reportFilename=LoginPage18,overwrite=false,html=false,json=true",
+    "test:spec17": "cypress run --spec 'cypress/e2e/LoginPage17.cy.js' --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/report,reportFilename=LoginPage17,overwrite=false,html=false,json=true",
+    "test:spec16": "cypress run --spec 'cypress/e2e/LoginPage16.cy.js' --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/report,reportFilename=LoginPage16,overwrite=false,html=false,json=true",
+    "test:spec15": "cypress run --spec 'cypress/e2e/LoginPage15.cy.js' --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/report,reportFilename=LoginPage15,overwrite=false,html=false,json=true",
+    "test:spec14": "cypress run --spec 'cypress/e2e/LoginPage14.cy.js' --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/report,reportFilename=LoginPage14,overwrite=false,html=false,json=true",
+    "test:spec13": "cypress run --spec 'cypress/e2e/LoginPage13.cy.js' --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/report,reportFilename=LoginPage13,overwrite=false,html=false,json=true",
+    "test:spec12": "cypress run --spec 'cypress/e2e/LoginPage12.cy.js' --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/report,reportFilename=LoginPage12,overwrite=false,html=false,json=true",
+    "test:spec11": "cypress run --spec 'cypress/e2e/LoginPage11.cy.js' --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/report,reportFilename=LoginPage11,overwrite=false,html=false,json=true",
+    "test:spec10": "cypress run --spec 'cypress/e2e/LoginPage10.cy.js' --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/report,reportFilename=LoginPage10,overwrite=false,html=false,json=true",
+    "test:spec3": "cypress run --spec 'cypress/e2e/GradedQuiz.cy.js'",
+    "test:parallel": "concurrently \"npm run test:spec1\" \"npm run test:spec19\" \"npm run test:spec18\" \"npm run test:spec17\" \"npm run test:spec16\" \"npm run test:spec15\" \"npm run test:spec14\" \"npm run test:spec13\" \"npm run test:spec12\" \"npm run test:spec11\" \"npm run test:spec10\"",
+    "report:merge": "npx mochawesome-merge cypress/report/*.json > cypress/report/merged-report.json",
+    "report:generate": "npx marge cypress/report/merged-report.json --reportDir cypress/report --reportFilename final-report",
+    "report:all": "npm run test:parallel && npm run report:merge && npm run report:generate",
+    "cy:run": "cypress run",
+    "cy:run:parallel": "cypress-parallel -s cy:run -t 20 -d 'cypress/e2e/*.cy.js' -r 'cypress-mochawesome-reporter' -o 'cypressParallel=true'",
+    "clean": "rimraf cypress/reports",
+    "generate-report": "generate-mochawesome-report --set-exit-code",
+    "test": "npm run clean && npm run cy:run:parallel || true && npm run generate-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "cypress": "^14.2.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-parallel": "^0.15.0",
+    "cypress-repeat": "^2.3.8"
+  },
+  "dependencies": {
+    "rimraf": "^6.0.1"
+  }
+}
