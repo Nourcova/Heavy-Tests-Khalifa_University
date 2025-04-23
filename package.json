@@ -23,7 +23,7 @@
     "report:generate": "npx marge cypress/report/merged-report.json --reportDir cypress/report --reportFilename final-report",
     "report:all": "npm run test:parallel && npm run report:merge && npm run report:generate",
     "cy:run": "cypress run",
-    "cy:run:parallel": "cypress-parallel -s cy:run -t 20 -d 'cypress/e2e/*.cy.js' -r 'cypress-mochawesome-reporter' -o 'cypressParallel=true'",
+    "cy:run:parallel": "cypress-parallel -s cy:run -t 20 -d 'cypress/e2e/LoginPage/*.cy.js' -r 'cypress-mochawesome-reporter' -o 'cypressParallel=true'",
     "clean": "rimraf cypress/reports",
     "generate-report": "generate-mochawesome-report --set-exit-code",
     "test": "npm run clean && npm run cy:run:parallel || true && npm run generate-report"

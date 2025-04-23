@@ -11,6 +11,7 @@ module.exports = defineConfig({
     },
   },
   reporter: 'cypress-mochawesome-reporter',
+  video:true,
   reporterOptions: {
     reportDir: 'cypress/report',
     charts: true,
